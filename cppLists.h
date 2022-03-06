@@ -2,8 +2,14 @@
 #define CPPLISTS
 
 #include <stdio.h>
+#include <assert.h>
+
 
 typedef int ElemType;
+
+const int           DESTROYED   =    213;
+
+const int           NOMISTAKE   =      0;
 
 struct item
 {
