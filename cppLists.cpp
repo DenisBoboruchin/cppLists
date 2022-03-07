@@ -43,9 +43,7 @@ int CLists::ListInsert (ElemType data, int num)
 	if (num > size_ + 1)
 		num = size_ + 1;
 
-	item* nextElem = NULL;
-
-	nextElem = fictElem_.next;
+	item* nextElem = fictElem_.next;
 
 	for (int index = 1; index < num; index++)
 		nextElem = nextElem->next;
@@ -72,5 +70,22 @@ int CLists::ListDelete (int num)
 	if (num > size_)
 		num = size_;
 
-	
+	item* workElem = fictElem_.next;
+
+	for (int index = 1; index < num; index++)
+		workElem = workElem->next;
+
+	item* nextElem = workElem->next;
+	item* prevElem = workElem->prev;
+
+	workElem->data = DESTROYED;
+	workElem->next = NULL;
+	workElem->prev = NULL;
+
+	delete[] workItem;
+
+	nextElem->prev = prevElem;
+	prevElem->next = nextElem;
+
+	return NOMISTAKE;
 }

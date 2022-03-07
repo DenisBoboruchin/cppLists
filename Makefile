@@ -7,7 +7,7 @@ CFLAGS =    -Wall -Wextra -Werror -Walloc-zero -Walloca -Walloca-larger-than=819
             -Wno-missing-field-initializers -Wnarrowing -Wvarargs -fcheck-new -fstrict-overflow -flto-odr-type-merging 	
 
 all:
-	g++ $(CFLAGS) cppLists.cpp main.cpp -o main
+	g++ $(CFLAGS) cppLists/cppLists.cpp main.cpp -o main
 
 clean:
 	rm -rf *.out *.o
