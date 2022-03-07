@@ -28,6 +28,7 @@ public:
                     ~CLists ();
     int             ListInsert (ElemType data, int num);
     int             ListDelete (int num);
+    int             ListDump ();
 };
 
 #endif

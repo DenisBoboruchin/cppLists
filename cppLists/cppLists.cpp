@@ -22,8 +22,8 @@ CLists::~CLists ()
 		nextItem = workItem->next;
 
 		workItem->data =   DESTROYED;
-		workItem->next =	    NULL;
-		workItem->prev =		NULL;
+		workItem->next =        NULL;
+		workItem->prev =        NULL;
 
 		delete[] workItem;
 
@@ -40,15 +40,10 @@ int CLists::ListInsert (ElemType data, int num)
 	assert (this);
 	assert (num > 0);
 
-	if (num > size_)
-		num = size_;
+	if (num > size_ + 1)
+		num = size_ + 1;
 
-	item* nextElem = NULL;
-
-	if (fictElem_.next == NULL)
-		nextElem = &fictElem_;
-	else
-		nextElem = fictElem_.next;
+	item* nextElem = fictElem_.next;
 
 	for (int index = 1; index < num; index++)
 		nextElem = nextElem->next;
@@ -63,6 +58,41 @@ int CLists::ListInsert (ElemType data, int num)
 	newElem->data = data;
 
 	size_++;
+
+	return NOMISTAKE;
+}
+
+int CLists::ListDelete (int num)
+{
+	assert (this);
+	assert (num > 0);
+
+	if (num > size_)
+		num = size_;
+
+	item* workElem = fictElem_.next;
+
+	for (int index = 1; index < num; index++)
+		workElem = workElem->next;
+
+	item* nextElem = workElem->next;
+	item* prevElem = workElem->prev;
+
+	workElem->data = DESTROYED;
+	workElem->next = NULL;
+	workElem->prev = NULL;
+
+	delete[] workElem;
+
+	nextElem->prev = prevElem;
+	prevElem->next = nextElem;
+
+	return NOMISTAKE;
+}
+
+int CLists::ListDump ()
+{
+	
 
 	return NOMISTAKE;
 }
