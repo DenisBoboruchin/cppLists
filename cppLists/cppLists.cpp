@@ -1,20 +1,17 @@
 #include "cppLists.h"
 
 CLists::CLists () :
-	size_ (0)
-	{	
-		struct item* pfictElem_ = new item;
-
-		pfictElem_->data = 0;
-		pfictElem_->next = NULL;
-		pfictElem_->prev = NULL;		
-
-		fictElem_ = *pfictElem_;
+	fictElem_ (new item),
+    size_ (0)
+    {
+		fictElem_->data = 1111111111;
+		fictElem_->next = fictElem_;
+		fictElem_->prev = fictElem_;		
 	}
 
 CLists::~CLists ()
 {
-	item* workItem = fictElem_.next;
+	item* workItem = fictElem_->next;
 	item* nextItem = NULL;
 
 	for (int i = 0; i < size_; i++)
@@ -43,7 +40,7 @@ int CLists::ListInsert (ElemType data, int num)
 	if (num > size_ + 1)
 		num = size_ + 1;
 
-	item* nextElem = fictElem_.next;
+	item* nextElem = fictElem_->next;
 
 	for (int index = 1; index < num; index++)
 		nextElem = nextElem->next;
@@ -70,7 +67,7 @@ int CLists::ListDelete (int num)
 	if (num > size_)
 		num = size_;
 
-	item* workElem = fictElem_.next;
+	item* workElem = fictElem_->next;
 
 	for (int index = 1; index < num; index++)
 		workElem = workElem->next;
@@ -87,12 +84,36 @@ int CLists::ListDelete (int num)
 	nextElem->prev = prevElem;
 	prevElem->next = nextElem;
 
+    size_--;
+
 	return NOMISTAKE;
 }
 
 int CLists::ListDump ()
 {
-	
+    DotCtor ();
+
+    item* nextElem = fictElem_->next;
+    printf ("adssda\n");
+    DotElemCtor (fictElem_, fictElem_->data, fictElem_->next, fictElem_->prev, "record", "grey");
+
+    for (int i = 0; i < size_; i++)
+    {
+        DotElemCtor (nextElem, nextElem->data, nextElem->next, nextElem->prev);
+
+        nextElem = nextElem->next;
+    }
+
+    nextElem = nextElem->next;
+
+    for (int j = 0; j < size_ - 1; j++)
+    {
+        DotEdgeCtor (nextElem, nextElem->next);
+
+        nextElem = nextElem->next;
+    }
+
+    DotEnd ();    
 
 	return NOMISTAKE;
 }

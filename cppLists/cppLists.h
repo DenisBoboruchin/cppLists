@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <assert.h>
 
+#include "../graphviz/graphviz.h"
 
 typedef int ElemType;
 
@@ -21,8 +22,8 @@ struct item
 class CLists
 {
 private:
-	struct item     fictElem_;
-    int             size_    ;
+	struct item*    fictElem_   =   NULL;
+    int             size_       =      0;
 public:
     explicit        CLists  ();
                     ~CLists ();

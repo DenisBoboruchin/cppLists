@@ -13,15 +13,15 @@ void DotCtor (const char* rankdir, const char* color)
     fprintf (dotFile, "\tnode[color=%s, fontsize = 8];\n", color);
 }
 
-void DotElemCtor (int index, int data, int next, int prev, const char* shape, 
+void DotElemCtor (void* index, int data, void* next, void* prev, const char* shape, 
         const char* color, const char* label, const char* style)
 {
-    fprintf (dotFile, "\t%s%d[shape=%s, ", label, index, shape); 
-    fprintf (dotFile, "label=\"addres\\n%4d|<data> data\\n%4d|{<next>next:%4d|<prev>prev:%4d}\", ", 
+    fprintf (dotFile, "\t%s%p[shape=%s, ", label, index, shape); 
+    fprintf (dotFile, "label=\"addres\\n%p|<data> data\\n%4d|{<next>next:%p|<prev>prev:%p}\", ", 
             index, data, next, prev);
     fprintf (dotFile, "fillcolor=\"%s\", style=%s];\n", color, style);
 }
-
+/*
 void DotInfoElemCtor (int capacity, int size, int head, int tail, int free, int statLin, 
         const char* shape, const char* color, const char* style)
 {
@@ -29,11 +29,11 @@ void DotInfoElemCtor (int capacity, int size, int head, int tail, int free, int 
     fprintf (dotFile, "label=\"Lists info|size:%4d|firstElem:\"",  
         capacity, size, head, tail, free, statLin);
     fprintf (dotFile, "fillcolor=\"%s\", style=%s];\n", color, style);
-}
+}*/
 
-void DotEdgeCtor (int index1, int index2, const char* style, const char* color)
+void DotEdgeCtor (void* index1, void* index2, const char* style, const char* color)
 {
-    fprintf (dotFile, "\telem%d-> elem%d[style=%s, color=\"%s\"];\n", 
+    fprintf (dotFile, "\telem%p-> elem%p[style=%s, color=\"%s\"];\n", 
             index1, index2, style, color);
 }
 
