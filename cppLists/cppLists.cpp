@@ -94,7 +94,7 @@ int CLists::ListDump ()
     DotCtor ();
 
     item* nextElem = fictElem_->next;
-    printf ("adssda\n");
+   
     DotElemCtor (fictElem_, fictElem_->data, fictElem_->next, fictElem_->prev, "record", "grey");
 
     for (int i = 0; i < size_; i++)
