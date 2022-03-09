@@ -89,6 +89,16 @@ int CLists::ListDelete (int num)
 	return NOMISTAKE;
 }
 
+int CLists::ListInsertFront (ElemType data)
+{
+    return CLists::ListInsert (data, 1);
+}
+
+int CLists::ListInsertBack (ElemType data)
+{
+    return CLists::ListInsert (data, size_ + 1);
+}
+
 int CLists::ListDump ()
 {
     DotCtor ();

@@ -25,11 +25,13 @@ private:
 	struct item*    fictElem_   =   NULL;
     int             size_       =      0;
 public:
-    explicit        CLists  ();
-                    ~CLists ();
-    int             ListInsert (ElemType data, int num);
-    int             ListDelete (int num);
-    int             ListDump ();
+    explicit        CLists              ();
+                    ~CLists             ();
+    int             ListInsert          (ElemType data, int num);
+    int             ListInsertFront     (ElemType data);
+    int             ListInsertBack      (ElemType data);
+    int             ListDelete          (int num);
+    int             ListDump            ();
 };
 
 #endif
