@@ -4,7 +4,7 @@ CLists::CLists () :
 	fictElem_ (new item),
     size_ (0)
     {
-		fictElem_->data = 1111111111;
+		fictElem_->data = 111111111;
 		fictElem_->next = fictElem_;
 		fictElem_->prev = fictElem_;
 
