@@ -10,4 +10,4 @@ all:
 	g++ $(CFLAGS) cppLists/cppLists.cpp graphviz/graphviz.cpp main.cpp -o main
 
 clean:
-	rm -rf *.out *.o
+	rm -rf *.out *.o main

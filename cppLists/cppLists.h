@@ -11,6 +11,7 @@ typedef int ElemType;
 const int           DESTROYED   =    213;
 
 const int           NOMISTAKE   =      0;
+const int           MISTAKE     =      1;
 
 struct item
 {
@@ -24,6 +25,8 @@ class CLists
 private:
 	struct item*    fictElem_   =   NULL;
     int             size_       =      0;
+
+    int             ListOk_             ();
 public:
     explicit        CLists              ();
                     ~CLists             ();

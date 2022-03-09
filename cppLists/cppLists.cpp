@@ -6,12 +6,16 @@ CLists::CLists () :
     {
 		fictElem_->data = 1111111111;
 		fictElem_->next = fictElem_;
-		fictElem_->prev = fictElem_;		
+		fictElem_->prev = fictElem_;
+
+        this->ListOk_();        
 	}
 
 CLists::~CLists ()
 {
-	item* workItem = fictElem_->next;
+    this->ListOk_();        
+	
+    item* workItem = fictElem_->next;
 	item* nextItem = NULL;
 
 	for (int i = 0; i < size_; i++)
@@ -34,7 +38,9 @@ CLists::~CLists ()
 
 int CLists::ListInsert (ElemType data, int num)
 {
-	assert (this);
+    this->ListOk_();        
+
+    assert (this);
 	assert (num > 0);
 
 	if (num > size_ + 1)
@@ -56,11 +62,13 @@ int CLists::ListInsert (ElemType data, int num)
 
 	size_++;
 
-	return NOMISTAKE;
+	return this->ListOk_ ();
 }
 
 int CLists::ListDelete (int num)
 {
+    this->ListOk_ ();
+
 	assert (this);
 	assert (num > 0);
 
@@ -86,7 +94,7 @@ int CLists::ListDelete (int num)
 
     size_--;
 
-	return NOMISTAKE;
+	return this->ListOk_ ();
 }
 
 int CLists::ListInsertFront (ElemType data)
@@ -97,6 +105,21 @@ int CLists::ListInsertFront (ElemType data)
 int CLists::ListInsertBack (ElemType data)
 {
     return CLists::ListInsert (data, size_ + 1);
+}
+
+int CLists::ListOk_ ()
+{
+    int ERROR = 0;
+
+    if (size_ < 0)
+    {
+        printf ("ERROR!!! Incorrect size\n");
+        ERROR = MISTAKE;
+    }
+
+    assert (!ERROR);
+
+    return NOMISTAKE;
 }
 
 int CLists::ListDump ()
