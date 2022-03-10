@@ -31,9 +31,11 @@ public:
     explicit        CLists              ();
                     ~CLists             ();
     int             ListInsert          (ElemType data, int num);
-    int             ListInsertFront     (ElemType data);
-    int             ListInsertBack      (ElemType data);
+    int             ListInsertHead      (ElemType data);
+    int             ListInsertTail      (ElemType data);
     int             ListDelete          (int num);
+    int             ListDeleteHead      ();
+    int             ListDeleteTail      ();
     int             ListDump            ();
 };
 

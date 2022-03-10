@@ -65,6 +65,16 @@ int CLists::ListInsert (ElemType data, int num)
 	return this->ListOk_ ();
 }
 
+int CLists::ListInsertHead (ElemType data)
+{
+    return CLists::ListInsert (data, 1);
+}
+
+int CLists::ListInsertTail (ElemType data)
+{
+    return CLists::ListInsert (data, size_ + 1);
+}
+
 int CLists::ListDelete (int num)
 {
     this->ListOk_ ();
@@ -97,14 +107,14 @@ int CLists::ListDelete (int num)
 	return this->ListOk_ ();
 }
 
-int CLists::ListInsertFront (ElemType data)
+int CLists::ListDeleteTail ()
 {
-    return CLists::ListInsert (data, 1);
+    return CLists::ListDelete (size_);
 }
 
-int CLists::ListInsertBack (ElemType data)
+int CLists::ListDeleteHead ()
 {
-    return CLists::ListInsert (data, size_ + 1);
+    return CLists::ListDelete (1);
 }
 
 int CLists::ListOk_ ()
