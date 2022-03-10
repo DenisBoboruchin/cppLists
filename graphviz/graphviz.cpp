@@ -51,6 +51,6 @@ void DotEnd (void)
 
     fclose (dotFile);
 
-    system ("dot dump/dot.dot -Tpng -o dump/dump.png");
+    system ("dot dump/dot.dot -q -Tpng -o dump/dump.png");
     system ("rm  dump/dot.dot");
 }
