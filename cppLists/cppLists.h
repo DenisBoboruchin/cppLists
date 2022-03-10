@@ -8,7 +8,7 @@
 
 typedef int ElemType;
 
-const int           DESTROYED   =    213;
+const int           DESTROYED   =   -213;
 
 const int           NOMISTAKE   =      0;
 const int           MISTAKE     =      1;
@@ -26,17 +26,17 @@ private:
 	struct item*    fictElem_   =   NULL;
     int             size_       =      0;
 
-    int             ListOk_             ();
+    int             ListOk_           ();
 public:
-    explicit        CLists              ();
-                    ~CLists             ();
-    int             ListInsert          (ElemType data, int num);
-    int             ListInsertHead      (ElemType data);
-    int             ListInsertTail      (ElemType data);
-    int             ListDelete          (int num);
-    int             ListDeleteHead      ();
-    int             ListDeleteTail      ();
-    int             ListDump            ();
+    explicit        CLists            ();
+                    ~CLists           ();
+    int             ListInsert        (ElemType data, int num);
+    int             ListInsertHead    (ElemType data);
+    int             ListInsertTail    (ElemType data);
+    int             ListDelete        (int num);
+    int             ListDeleteHead    ();
+    int             ListDeleteTail    ();
+    int             ListDump          ();
 };
 
 #endif
