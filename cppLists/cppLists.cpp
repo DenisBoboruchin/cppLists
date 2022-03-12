@@ -134,8 +134,6 @@ int CLists::ListOk_ ()
 
 int CLists::ListDump ()
 {
-    //DotCtor ();
-
     item* nextElem = fictElem_->next;
    
     DotElemCtor (fictElem_, fictElem_->data, fictElem_->next, fictElem_->prev, "record", "grey");
@@ -156,9 +154,7 @@ int CLists::ListDump ()
         DotEdgeCtor (nextElem, nextElem->next);
 
         nextElem = nextElem->next;
-    }
-
-    //DotEnd ();    
+    }    
 
 	return NOMISTAKE;
 }
