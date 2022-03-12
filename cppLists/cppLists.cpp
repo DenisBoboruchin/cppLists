@@ -14,7 +14,7 @@ CLists::CLists () :
 CLists::~CLists ()
 {
     this->ListOk_();        
-	
+
     item* workItem = fictElem_->next;
 	item* nextItem = NULL;
 
@@ -134,7 +134,7 @@ int CLists::ListOk_ ()
 
 int CLists::ListDump ()
 {
-    DotCtor ();
+    //DotCtor ();
 
     item* nextElem = fictElem_->next;
    
@@ -149,6 +149,8 @@ int CLists::ListDump ()
 
     nextElem = nextElem->next;
 
+    DotEdgeCtor (fictElem_, fictElem_->next);
+
     for (int j = 0; j < size_ - 1; j++)
     {
         DotEdgeCtor (nextElem, nextElem->next);
@@ -156,7 +158,7 @@ int CLists::ListDump ()
         nextElem = nextElem->next;
     }
 
-    DotEnd ();    
+    //DotEnd ();    
 
 	return NOMISTAKE;
 }
