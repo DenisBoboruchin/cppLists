@@ -81,6 +81,11 @@ int CLists::ListDelete (int num)
 
 	assert (this);
 	assert (num > 0);
+    
+    if (size_ == 0)
+    {
+        printf ("WARNING!!! Delete from void lists\n");
+        return this->ListOk_ ();
 
 	if (num > size_)
 		num = size_;
