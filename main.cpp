@@ -20,7 +20,7 @@ int main ()
 	l1.ListDelete (6);
 	l1.ListDeleteTail ();
 
-	printf ("%p\n", l1.FoundElem (20));
+	printf ("%d\n", l1.FoundElem (20));
 
 	l1.ListDump ();
 

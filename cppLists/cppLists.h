@@ -13,6 +13,8 @@ const int           DESTROYED   =   -213;
 const int           NOMISTAKE   =      0;
 const int           MISTAKE     =      1;
 
+const int           NOTFOUND    =   -583;
+
 struct item
 {
 	ElemType		data	    =	   0;
@@ -40,7 +42,7 @@ public:
     int             ListDeleteHead    ();
     int             ListDeleteTail    ();
    
-    struct item*    FoundElem         (ElemType data);
+    int             FoundElem         (ElemType data);
 
     int             ListDump          ();
 };
