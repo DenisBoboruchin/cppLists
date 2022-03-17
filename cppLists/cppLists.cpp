@@ -123,6 +123,25 @@ int CLists::ListDeleteHead ()
     return CLists::ListDelete (1);
 }
 
+struct item* CLists::FoundElem (ElemType data)
+{
+    this->ListOk_ ();
+
+    struct item* nextElem = fictElem_->next;
+
+    for (int index = 0; index < size_; index++)
+    {
+        if (nextElem->data == data)
+            return nextElem;
+        
+        nextElem = nextElem->next;
+    }
+    
+    this->ListOk_ ();
+
+    return NULL;
+}
+
 int CLists::ListOk_ ()
 {
     int ERROR = 0;

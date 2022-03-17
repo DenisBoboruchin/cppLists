@@ -6,7 +6,7 @@
 
 #include "../graphviz/graphviz.h"
 
-typedef double ElemType;
+typedef int ElemType;
 
 const int           DESTROYED   =   -213;
 
@@ -39,7 +39,9 @@ public:
     int             ListDelete        (int num);
     int             ListDeleteHead    ();
     int             ListDeleteTail    ();
-    
+   
+    struct item*    FoundElem         (ElemType data);
+
     int             ListDump          ();
 };
 
