@@ -5,7 +5,7 @@ int main ()
 {
 	DotCtor ();
 
-	CLists l1;
+	CLists l1 ("INT");
 
 	l1.ListInsertHead  (5);
 	l1.ListInsert  (10, 2);
@@ -20,11 +20,11 @@ int main ()
 	l1.ListDelete (6);
 	l1.ListDeleteTail ();
 
-	printf ("%d\n", l1.FoundElem (20));
+	//printf ("%d\n", l1.FoundElem (20));
 
 	l1.ListDump ();
 
-	CLists l2;
+	CLists l2 ("INT");
 
 	l2.ListInsert (12, 1);
 

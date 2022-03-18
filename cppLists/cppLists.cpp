@@ -1,15 +1,27 @@
 #include "cppLists.h"
 
-CLists::CLists () :
-	fictElem_ (new item),
+CLists::CLists (const char* type) :
+    fictElem_ (new item),
     size_ (0)
     {
+        fictElem_->Type = CheckType (type);
+
 		fictElem_->data = 111111111;
 		fictElem_->next = fictElem_;
 		fictElem_->prev = fictElem_;
 
         this->ListOk_();        
 	}
+
+ElementType CheckType (const char* type)
+{
+    if (strcmp (type, "INT"))
+        return INT;
+    if (strcmp (type, "DOUBLE"))
+        return DOUBLE;
+
+    return MIS;
+}
 
 CLists::~CLists ()
 {

@@ -3,10 +3,18 @@
 
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 
 #include "../graphviz/graphviz.h"
 
 typedef int ElemType;
+
+typedef enum 
+{
+        MIS = 0,
+        INT,
+        DOUBLE  
+}   ElementType;
 
 const int           DESTROYED   =   -213;
 
@@ -17,8 +25,11 @@ const int           NOTFOUND    =   -583;
 
 struct item
 {
+    ElementType     Type                ;
+
 	ElemType		data	    =	   0;
-	struct item*	next	    =	NULL;
+	
+    struct item*	next	    =	NULL;
     struct item*    prev        =   NULL;
 };
 
@@ -31,7 +42,7 @@ private:
     int             ListOk_           ();
 
 public:
-    explicit        CLists            ();
+    explicit        CLists            (const char* type);
                     ~CLists           ();
     
     int             ListInsert        (ElemType data, int num);
@@ -46,5 +57,7 @@ public:
 
     int             ListDump          ();
 };
+
+ElementType     CheckType (const char* type);
 
 #endif
