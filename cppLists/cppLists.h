@@ -14,7 +14,7 @@ typedef enum
         MIS = 0,
         INT,
         DOUBLE  
-}   ElementType;
+}   NumType;
 
 const int           DESTROYED   =   -213;
 
@@ -25,8 +25,6 @@ const int           NOTFOUND    =   -583;
 
 struct item
 {
-    ElementType     Type                ;
-
 	ElemType		data	    =	   0;
 	
     struct item*	next	    =	NULL;
@@ -38,6 +36,8 @@ class CLists
 private:
 	struct item*    fictElem_   =   NULL;
     int             size_       =      0;
+    
+    NumType         Type_       =    MIS;
 
     int             ListOk_           ();
 
@@ -58,6 +58,6 @@ public:
     int             ListDump          ();
 };
 
-ElementType     CheckType (const char* type);
+NumType     CheckType (const char* type);
 
 #endif

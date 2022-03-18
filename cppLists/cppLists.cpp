@@ -4,7 +4,7 @@ CLists::CLists (const char* type) :
     fictElem_ (new item),
     size_ (0)
     {
-        fictElem_->Type = CheckType (type);
+        Type_ = CheckType (type);
 
 		fictElem_->data = 111111111;
 		fictElem_->next = fictElem_;
@@ -13,7 +13,7 @@ CLists::CLists (const char* type) :
         this->ListOk_();        
 	}
 
-ElementType CheckType (const char* type)
+NumType CheckType (const char* type)
 {
     if (strcmp (type, "INT"))
         return INT;
