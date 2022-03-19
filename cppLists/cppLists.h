@@ -7,16 +7,21 @@
 
 #include "../graphviz/graphviz.h"
 
-typedef int ElemType;
+//--------------------------------------------------------------------------
+//---------------------------CHOOSE-TYPE-OF-LISTS---------------------------
+//--------------------------------------------------------------------------
+#define STR
 
+/*
 typedef enum 
 {
         MIS = 0,
         INT,
-        DOUBLE  
-}   NumType;
+        DOUBLE,
+        STR  
+}   NumType;*/
 
-const int           DESTROYED   =   -213;
+const int           DESTROYSZ   = -12323;
 
 const int           NOMISTAKE   =      0;
 const int           MISTAKE     =      1;
@@ -37,12 +42,12 @@ private:
 	struct item*    fictElem_   =   NULL;
     int             size_       =      0;
     
-    NumType         Type_       =    MIS;
+   //NumType         Type_       =    INT;       //you must change it
 
     int             ListOk_           ();
 
 public:
-    explicit        CLists            (const char* type);
+    explicit        CLists            ();
                     ~CLists           ();
     
     int             ListInsert        (ElemType data, int num);
@@ -58,6 +63,6 @@ public:
     int             ListDump          ();
 };
 
-NumType     CheckType (const char* type);
+//NumType     CheckType (const char* type);
 
 #endif

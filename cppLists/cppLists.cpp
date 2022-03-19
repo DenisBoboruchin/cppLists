@@ -1,18 +1,41 @@
 #include "cppLists.h"
 
-CLists::CLists (const char* type) :
+#ifdef STR
+    typedef const char* ElemType;
+
+    const char*     INITIAL     =     "fict";
+    const char*     DESTROYED   =     "dest";
+#endif
+
+#ifdef INT
+    typedef int ElemType;
+
+    const int       INITIAL     =     111111;
+    const int       DESTROYED   =      -4942;
+#endif
+
+#ifdef DOUBLE
+    typedef double ElemType;
+
+    double          INITIAL     =     111111;
+    double          DESTROYED   =      -7234;
+#endif
+
+
+CLists::CLists () :
     fictElem_ (new item),
     size_ (0)
     {
-        Type_ = CheckType (type);
+        //Type_ = CheckType (type);
 
-		fictElem_->data = 111111111;
-		fictElem_->next = fictElem_;
+        fictElem_->data = INITIAL;
+
+       	fictElem_->next = fictElem_;
 		fictElem_->prev = fictElem_;
 
         this->ListOk_();        
 	}
-
+/*
 NumType CheckType (const char* type)
 {
     if (strcmp (type, "INT"))
@@ -21,7 +44,7 @@ NumType CheckType (const char* type)
         return DOUBLE;
 
     return MIS;
-}
+}*/
 
 CLists::~CLists ()
 {
@@ -45,7 +68,7 @@ CLists::~CLists ()
 
 	delete[] workItem;
 
-	size_ = DESTROYED;
+	size_ = DESTROYSZ;
 }
 
 int CLists::ListInsert (ElemType data, int num)
@@ -143,9 +166,16 @@ int CLists::FoundElem (ElemType data)
 
     for (int index = 0; index < size_; index++)
     {
-        if (nextElem->data == data)
+        #ifdef STR
+        if (!strcmp (nextElem->data, data))
             return index + 1;
-        
+        #endif
+
+        #ifndef STR
+        if (nextElem->data == data)                 
+            return index + 1;
+        #endif
+
         nextElem = nextElem->next;
     }
     
