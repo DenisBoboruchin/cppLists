@@ -168,12 +168,12 @@ int CLists::FoundElem (ElemType data)
     {
         #ifdef STR
         if (!strcmp (nextElem->data, data))
-            return index + 1;
+            return ++index;
         #endif
 
         #ifndef STR
         if (nextElem->data == data)                 
-            return index + 1;
+            return ++index;
         #endif
 
         nextElem = nextElem->next;

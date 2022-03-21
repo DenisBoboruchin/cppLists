@@ -4,8 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef const char* ElemType;
-#define ELEM_FMT "%s"
+typedef int ElemType;
+#define ELEM_FMT "%4d"
 
 void    DotCtor         (const char* rankdir = "LR", const char *color = "darkkhaki");
 
