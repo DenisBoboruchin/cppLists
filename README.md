@@ -11,7 +11,7 @@ git clone https://github.com/DenisBoboruchin/cppLists
 
 #### To run the program main.cpp use
 ```
-cd lists
+cd cppLists
 make
 ./main
 ```
