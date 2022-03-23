@@ -55,6 +55,7 @@ int main ()
 	l1.ListDeleteTail ();
 
 	printf ("20 on the position: %d\n", l1.FoundElem (20));
+	printf ("adress: %p\n", l1.FoundPtrElem (20));
 
 	l1.ListDump ();
 

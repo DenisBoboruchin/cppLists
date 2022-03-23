@@ -59,6 +59,7 @@ public:
     int             ListDeleteTail    ();
    
     int             FoundElem         (ElemType data);
+    struct item*    FoundPtrElem      (ElemType data);
 
     int             ListDump          ();
 };
